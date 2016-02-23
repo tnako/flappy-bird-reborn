@@ -18,19 +18,23 @@ Play.prototype = {
     this.game.physics.arcade.gravity.y = 1200;
 
     // add the background sprite
-    this.background = this.game.add.sprite(0,0,'background');
+    var parent = document.querySelector('#flappy-yabi');
+    var screenWidth = parent.clientWidth > window.innerWidth ? window.innerWidth : parent.clientWidth;
+    var screenHeight = parent.clientHeight > window.innerHeight ? window.innerHeight : parent.clientHeight;
+    // add the background sprite
+    this.background = this.game.add.tileSprite(0,0, this.game.width, screenHeight, 'background');
 
     // create and add a group to hold our pipeGroup prefabs
     this.pipes = this.game.add.group();
     
-    // create and add a new Bird object
-    this.bird = new Bird(this.game, 100, this.game.height/2);
+     // create and add a new Bird object
+    this.bird = new Bird(this.game, 100, screenHeight/2);
     this.game.add.existing(this.bird);
     
     
 
     // create and add a new Ground object
-    this.ground = new Ground(this.game, 0, 400, 335, 112);
+    this.ground = new Ground(this.game, 0, screenHeight-100, screenWidth+47, 112);
     this.game.add.existing(this.ground);
     
 

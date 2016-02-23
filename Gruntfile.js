@@ -57,11 +57,11 @@ module.exports = function (grunt) {
       prod: {
         files: [
           // includes files within path and its sub-directories
-          { expand: true, src: ['assets/**'], dest: 'dist/' },
+          { expand: true, src: ['assets/**'], dest: '../yabber-web/games/flappy/' },
           { expand: true, flatten: true, src: ['game/plugins/*.js'], dest: 'dist/js/plugins/' },
-          { expand: true, flatten: true, src: ['bower_components/**/build/*.js'], dest: 'dist/js/' },
-          { expand: true, src: ['css/**'], dest: 'dist/' },
-          { expand: true, src: ['index.html'], dest: 'dist/' }
+          { expand: true, flatten: true, src: ['bower_components/**/build/*.js'], dest: '../yabber-web/games/flappy/' },
+          { expand: true, src: ['css/**'], dest: '../yabber-web/games/flappy/' },
+          { expand: true, src: ['index.html'], dest: '../yabber-web/games/flappy/' }
         ]
       }
     },
@@ -69,7 +69,7 @@ module.exports = function (grunt) {
       
       build: {
         src: ['game/main.js'],
-        dest: 'dist/js/game.js'
+        dest: '../yabber-web/games/flappy/js/game.js'
       }
     }
   });
